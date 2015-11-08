@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour {
 
     //Values depening on the player
     public int[] score;
-    private bool[] isAlive;
 
     //Hold the number of players from the number of controllers
     private int numPlayers = 0;
@@ -38,9 +37,6 @@ public class GameController : MonoBehaviour {
 
                     //Adds to the number of players
                     numPlayers++;
-
-                    //confirms that the player is alive
-                    isAlive[i] = true;
                 }
             }
         }
