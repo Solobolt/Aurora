@@ -4,8 +4,10 @@ using System;
 
 public class SingleFireLaser : Weapon {
 
-    public float fireRate = 0.5f;
-    private float fireTime = 0.0f;
+    private float fireRate = 0.1f;
+    private float fireTime = 1.0f;
+
+    public GameObject projectile;
 
     //Handles the weapon effects
     public override void fireWeapon()
@@ -15,6 +17,7 @@ public class SingleFireLaser : Weapon {
         if(fireTime >= fireRate)
         {
             print("Firing Weapon");
+            Instantiate(projectile,myTransform.position,myTransform.rotation);
             fireTime = 0;
         }
     }

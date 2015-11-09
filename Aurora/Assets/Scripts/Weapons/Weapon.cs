@@ -7,10 +7,12 @@ public abstract class Weapon : MonoBehaviour {
 
     private int playerNumb;
     private bool numbChecked = false;
+
+    public Transform myTransform;
     
     // Use this for initialization
     void Start () {
-        
+        myTransform = this.transform;
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public abstract class Weapon : MonoBehaviour {
     //Handles Inputs
     void CheckInputs()
     {
-        if (Input.GetAxis(fire1) != 0 || Input.GetKey("w"))
+        if (Input.GetAxis(fire1) != 0)
         {
             fireWeapon();
         }
