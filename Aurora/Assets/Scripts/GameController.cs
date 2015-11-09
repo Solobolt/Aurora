@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour {
     //Hold the number of players from the number of controllers
     private int numPlayers = 0;
 
+    //deteramins how far appart players spawn
+    private int spawnDistance = 2;
+
     //Player Prefab
     public GameObject player;
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();
@@ -21,6 +24,7 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         CheckControllers();
+        createPlayers();
     }
 	
 	// Update is called once per frame
@@ -34,8 +38,12 @@ public class GameController : MonoBehaviour {
         //Having the bool check will prevent the game from rewriting strings every frame
         if (isNumbSet == false)
         {
-            PlayerList[1].playerNumb = 2;
-            PlayerList[1].SetStrings();
+            //Check if there is a second player that need its number changed
+            if (numPlayers > 1)
+            {
+                PlayerList[1].playerNumb = 2;
+                PlayerList[1].SetStrings();
+            }
             isNumbSet = true;
         }
     }
@@ -50,16 +58,43 @@ public class GameController : MonoBehaviour {
             {
                 if (controllers[i] != "")
                 {
-                    //Spawns the player
-                    print("Player " + i + " Spawn");
-
-                    //Create a player
-                    Instantiate(player,new Vector3(0,0,0),new Quaternion(0,0,0,0));
-
                     //Adds to the number of players
                     numPlayers++;
+                    print("Numb Players " + numPlayers);
                 }
             }
+        }
+    }
+
+    //instantiates players
+    void createPlayers()
+    {
+        switch (numPlayers)
+        {
+            case 1:
+
+                print("1 Player");
+
+                Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+
+                break;
+
+            case 2:
+
+                print("2 Players");
+
+                for (int i = 0; i < numPlayers; i++)
+                {
+                    Instantiate(player, new Vector3(spawnDistance * Mathf.Pow((-1),i), 0, 0), new Quaternion(0, 0, 0, 0));
+                }
+
+                break;
+
+            default:
+
+                Debug.Log("Player Spawn error 'playerNumb'");
+
+                break;
         }
     }
 

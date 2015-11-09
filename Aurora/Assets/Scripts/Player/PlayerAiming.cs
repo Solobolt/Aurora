@@ -60,7 +60,7 @@ public class PlayerAiming : MonoBehaviour {
         //Culculates the desired angle of the Weapon Pivot
         float angle = (Mathf.Atan2(aimingX, aimingY) * Mathf.Rad2Deg);
 
-        currentAngle = Quaternion.Euler(0,angle,0);
+        currentAngle = Quaternion.Euler(0, 0, -angle);
 
         //Sets pivot angle
         myTransform.rotation = currentAngle;
