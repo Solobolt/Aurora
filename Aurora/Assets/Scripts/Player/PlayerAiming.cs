@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerAiming : MonoBehaviour {
 
     private int playerNumb;
+    private bool numbChecked = false;
 
     private Transform myTransform;
 
@@ -15,21 +16,32 @@ public class PlayerAiming : MonoBehaviour {
     float aimingX;
     float aimingY;
 
+    //Set strings
+    private void setStrings()
+    {
+        if (numbChecked == false)
+        {
+            //Finds the player number from its parent
+            playerNumb = gameObject.GetComponentInParent<PlayerMovement>().playerNumb;
+
+            //Sets strong variables
+            mouseX = "P" + playerNumb + "_MouseX";
+            mouseY = "P" + playerNumb + "_MouseY";
+            numbChecked = true;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         //sets the players transform
         myTransform = this.transform;
-
-        //Finds the player number from its parent
-        playerNumb = gameObject.GetComponentInParent<PlayerMovement>().playerNumb;
-
-        //Sets strong variables
-        mouseX = "P" + playerNumb + "_MouseX";
-        mouseY = "P" + playerNumb + "_MouseY";
     }
 
     // Update is called once per frame
     void Update () {
+        //Sets player Numb
+        setStrings();
+
         Quaternion currentAngle = myTransform.rotation;
 
         // Handles aiming of player

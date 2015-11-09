@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public int playerNumb = 1;
 
+    private GameController gameController;
+
     //Holds movement values
     private Transform myTransform;
     private int moveSpeed = 10;
@@ -20,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         myTransform = this.transform;
         SetStrings();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController.addPlayer(this);
     }
 	
 	// Update is called once per frame
@@ -28,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
     //Sets strings depeing on the player numb
-    private void SetStrings()
+    public void SetStrings()
     {
         //Base string { = "P" + playerNumb + "_"}
         horizontal = "P" + playerNumb + "_Horizontal";
