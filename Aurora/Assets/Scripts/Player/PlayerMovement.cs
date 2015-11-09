@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     //Holds movement values
     private Transform myTransform;
-    private int moveSpeed = 10;
+    private int moveSpeed = 20;
 
     //Hold strings for the controller
     private string horizontal;
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour {
         //moves the player along the Y axis
         if (Input.GetAxis(vertical) != 0)
         {
-            currentPos.y += moveSpeed * Time.deltaTime * Input.GetAxis(vertical);
+            currentPos.z += moveSpeed * Time.deltaTime * Input.GetAxis(vertical);
         }
 
         //sets the new postion
