@@ -60,7 +60,6 @@ public class GameController : MonoBehaviour {
                 {
                     //Adds to the number of players
                     numPlayers++;
-                    print("Numb Players " + numPlayers);
                 }
             }
         }
@@ -73,15 +72,11 @@ public class GameController : MonoBehaviour {
         {
             case 1:
 
-                print("1 Player");
-
                 Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
 
                 break;
 
             case 2:
-
-                print("2 Players");
 
                 for (int i = 0; i < numPlayers; i++)
                 {

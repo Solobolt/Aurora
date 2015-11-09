@@ -13,10 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 
     //Hold strings for the controller
     private string horizontal;
-    private string vertical;
-    //private string fire1;
-    //private string fire2;
-    
+    private string vertical;    
 
 	// Use this for initialization
 	void Start () {
@@ -37,8 +34,6 @@ public class PlayerMovement : MonoBehaviour {
         //Base string { = "P" + playerNumb + "_"}
         horizontal = "P" + playerNumb + "_Horizontal";
         vertical = "P" + playerNumb + "_Vertical";
-       // fire1 = "P" + playerNumb + "_Fire1";
-       // fire2 = "P" + playerNumb + "_Fire2";
     }
 
     //Handles movement

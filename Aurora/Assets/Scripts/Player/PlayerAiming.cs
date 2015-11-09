@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerAiming : MonoBehaviour {
 
-    private int playerNumb;
+    public int playerNumb;
     private bool numbChecked = false;
 
     private Transform myTransform;
