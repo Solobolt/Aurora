@@ -3,6 +3,9 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
+    //Audio manager for sounds
+    public AudioController audioController;
+
     //Enemy basic value
     public int health;
     public float moveSpeed;
@@ -35,6 +38,7 @@ public abstract class Enemy : MonoBehaviour {
         myTransform = this.transform;
         SetUnitValues();
         players = GameObject.FindGameObjectsWithTag("Player");
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -74,6 +78,7 @@ public abstract class Enemy : MonoBehaviour {
         if (health <= 0)
         {
             Destroy(this.gameObject);
+            audioController.playSound(audioController.SFX,audioController.enemyDeath);
         }
     }
 

@@ -8,11 +8,14 @@ public abstract class Weapon : MonoBehaviour {
     private int playerNumb;
     private bool numbChecked = false;
 
+    public AudioController audioController;
+
     public Transform myTransform;
     
     // Use this for initialization
     void Start () {
         myTransform = this.transform;
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
