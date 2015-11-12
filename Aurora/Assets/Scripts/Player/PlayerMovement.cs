@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     //Holds movement values
     private Transform myTransform;
     private int moveSpeed = 20;
-    private int health = 150;
+    public int health = 200;
 
     //Hold strings for the controller
     private string horizontal;
