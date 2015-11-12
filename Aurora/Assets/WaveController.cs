@@ -6,6 +6,7 @@ public class WaveController : MonoBehaviour {
     private Transform myTransform;
 
     public GameObject[] waves;
+    public GameObject miniBoss;
 
     private float waveTimer = 185.0f;
     private float spawningDelay = 5.0f;
@@ -83,8 +84,8 @@ public class WaveController : MonoBehaviour {
                         {
                             if(waveTimer<=0)
                             {
+                                Instantiate(miniBoss, new Vector3(0,0,7), Quaternion.Euler(0,0,0));
                                 Destroy(this.gameObject);
-                                //Spawn boss
                             }
                         }
                         
