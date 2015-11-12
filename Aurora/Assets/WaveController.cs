@@ -8,8 +8,8 @@ public class WaveController : MonoBehaviour {
     public GameObject[] waves;
 
     private float waveTimer = 185.0f;
-    private float spawningDelay = 5.0f;
-    private float spawningTime = 10.0f;
+    private float spawningDelay = 7.0f;
+    private float spawningTime = 15.0f;
 
 	// Use this for initialization
 	void Start () {

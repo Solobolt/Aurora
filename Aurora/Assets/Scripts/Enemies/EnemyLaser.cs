@@ -5,7 +5,7 @@ public class EnemyLaser : MonoBehaviour {
 
     Transform myTransform;
 
-    int moveSpeed = 500;
+    int moveSpeed = 600;
     float lifeSpan = 4.5f;
 
 	// Use this for initialization
