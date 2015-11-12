@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerAiming : MonoBehaviour {
 
+    private GameController gameController;
+
     public int playerNumb;
     private bool numbChecked = false;
 
@@ -35,6 +37,7 @@ public class PlayerAiming : MonoBehaviour {
     void Start () {
         //sets the players transform
         myTransform = this.transform;
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -56,7 +59,7 @@ public class PlayerAiming : MonoBehaviour {
             aimingY = -Input.GetAxis(mouseY);
         }
         else aimingY = 0;
-
+       
         //Culculates the desired angle of the Weapon Pivot
         float angle = (Mathf.Atan2(aimingX, aimingY) * Mathf.Rad2Deg);
         currentAngle = Quaternion.Euler(0, angle, 0);

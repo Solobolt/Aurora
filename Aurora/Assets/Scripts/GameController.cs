@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     public int[] score;
 
     //Hold the number of players from the number of controllers
-    private int numPlayers = 0;
+    public int numPlayers = 0;
 
     //deteramins how far appart players spawn
     private int spawnDistance = 2;
@@ -70,6 +70,10 @@ public class GameController : MonoBehaviour {
     {
         switch (numPlayers)
         {
+            case 0:
+                Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+
+                break;
             case 1:
 
                 Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
