@@ -16,7 +16,6 @@ public class SingleFireLaser : Weapon {
 
         if(fireTime >= fireRate)
         {
-            print("Firing Weapon");
             Instantiate(projectile,myTransform.position,myTransform.rotation);
             fireTime = 0;
         }

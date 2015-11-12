@@ -1,0 +1,145 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public abstract class Enemy : MonoBehaviour {
+
+    //Enemy basic value
+    public int health;
+    public float moveSpeed;
+    public bool track = false;
+
+    //Hold the transform
+    Transform myTransform;
+
+    //Player Tracking Values
+    private GameObject[] players;
+    private GameObject closestPlayer;
+
+    private float rotationSpeed = 2.0f;
+    private float adjRotationSpeed;
+    private Quaternion targetRotation;
+
+    //Distnace that the object must be from the center to be destroyerd 
+    private int vertBoarder = 20;
+    private int vertBoarderMax = 80;
+    private int horiBoarder = 30;
+
+
+    //Holds the enemy projectile
+    public GameObject enemyLaser;
+    public GameObject[] muzzle;
+
+    // Use this for initialization
+    void Start()
+    {
+        myTransform = this.transform;
+        SetUnitValues();
+        players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update () {
+        MoveForward();
+        FireWeapon();
+	}
+    
+    // Makes the enemy move forward at a constant speed
+    void MoveForward()
+    {
+        if(track == true)
+        {
+            players = GameObject.FindGameObjectsWithTag("Player");
+            LookAtPlayer();
+        }
+        Vector3 currentPos = myTransform.position;
+        currentPos.z -= moveSpeed * Time.deltaTime;
+        myTransform.position = currentPos;
+        CheckBoandry(currentPos);
+    }
+
+    //Handles what happen when the object is hit
+    void OnTriggerEnter(Collider otherObject)
+    {
+        if(otherObject.gameObject.tag=="Laser")
+        {
+            RemoveHealth(10);
+            Destroy(otherObject.gameObject);
+        }
+    }
+
+    //Makes the objectr lose health
+    public void RemoveHealth(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    //determines wether or not the object is too far and delets it if so
+    void CheckBoandry(Vector3 pos)
+    {
+        if (pos.z <= -vertBoarder || pos.z >= vertBoarderMax)
+        {
+            Destroy(this.gameObject);
+        }
+        if (pos.x <= -horiBoarder || pos.x >= horiBoarder)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    //sets the basic values for the unit
+    public abstract void SetUnitValues();
+
+    //Creates and fires enemy bullets in the direction that the enemy is facing
+    public abstract void FireWeapon();
+
+    //Turns to face the closest player
+    void LookAtPlayer()
+    {
+        FindClosestPlayer();
+        if (closestPlayer != null)
+        {
+            if (closestPlayer.transform.position.z < myTransform.position.z)
+            {
+                targetRotation = Quaternion.LookRotation(closestPlayer.transform.position - myTransform.position);
+                adjRotationSpeed = Mathf.Min(rotationSpeed * Time.deltaTime, 1);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, adjRotationSpeed);
+
+            }
+        }
+        else
+        {
+            targetRotation = Quaternion.LookRotation(new Vector3(0,-100,0) - myTransform.position);
+            adjRotationSpeed = Mathf.Min(rotationSpeed * Time.deltaTime, 1);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, adjRotationSpeed);
+        }
+    }
+
+    //Locates the closest player to the enemy
+    private void FindClosestPlayer()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+
+                if (i == 0)
+                {
+                    closestPlayer = players[0];
+                }
+
+                float playerDistnace = Vector3.Distance(myTransform.position, players[i].transform.position);
+                float oldDistance = Vector3.Distance(myTransform.position, closestPlayer.transform.position);
+
+                if (playerDistnace <= oldDistance)
+                {
+                    closestPlayer = players[i];
+                }
+            }
+        }
+    }
+
+}

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     //Holds movement values
     private Transform myTransform;
     private int moveSpeed = 20;
+    public int health = 100;
 
     //Hold strings for the controller
     private string horizontal;
@@ -56,5 +57,19 @@ public class PlayerMovement : MonoBehaviour {
 
         //sets the new postion
         myTransform.position = currentPos;
+    }
+
+    //Handles collitons
+    void OnTriggerEnter(Collider otherObject)
+    {
+        if(otherObject.tag=="EnemyLaser")
+        {
+            health -= 10;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+            Destroy(otherObject.gameObject);
+        }
     }
 }
