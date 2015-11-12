@@ -16,7 +16,7 @@ public class SingleFireLaser : Weapon {
 
         if(fireTime >= fireRate)
         {
-            audioController.playSound(audioController.SFX,audioController.playerShot);
+            audioController.playSound(audioController.SFX,audioController.playerShot,1.0f);
             Instantiate(projectile,myTransform.position,myTransform.rotation);
             fireTime = 0;
         }
