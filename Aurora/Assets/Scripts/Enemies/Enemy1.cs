@@ -4,10 +4,10 @@ using System;
 
 public class Enemy1 : Enemy {
 
-    int unitHealth = 60;
-    int unitSpeed = 3;
+    int unitHealth = 30;
+    int unitSpeed = 4;
     float fireTime = 10;
-    float fireRate = 0.7f;
+    float fireRate = 1.5f;
 
     public override void SetUnitValues()
     {

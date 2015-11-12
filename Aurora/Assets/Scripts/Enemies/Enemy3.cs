@@ -6,7 +6,7 @@ public class Enemy3 : Enemy {
     int unitHealth = 50;
     int unitSpeed = 2;
     float fireTime = 10;
-    float fireRate = 0.7f;
+    float fireRate = 1.5f;
 
     public override void SetUnitValues()
     {

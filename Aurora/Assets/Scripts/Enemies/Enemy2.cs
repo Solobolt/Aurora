@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Enemy2 : Enemy {
 
-    int unitHealth = 50;
+    int unitHealth = 20;
     int unitSpeed = 2;
     float fireTime = 10;
-    float fireRate = 1.0f;
+    float fireRate = 1.8f;
 
     public override void SetUnitValues()
     {
