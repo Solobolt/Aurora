@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour {
         //Place holder for postion edits
         Vector3 currentPos = myTransform.position;
 
+        // JOYSTICK
         //Moves the player alongg the X Axis
         if (Input.GetAxis(horizontal) != 0)
         {
@@ -53,6 +54,31 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetAxis(vertical) != 0)
         {
             currentPos.z += moveSpeed * Time.deltaTime * Input.GetAxis(vertical);
+        }
+
+        //KEYBOARD
+        //keyboard testing
+        if (Input.GetKey("a"))
+        {
+            currentPos.x -= moveSpeed * Time.deltaTime;
+        }
+
+        //keyboard testing
+        if (Input.GetKey("d"))
+        {
+            currentPos.x += moveSpeed * Time.deltaTime;
+        }
+
+        //keyboard testing
+        if (Input.GetKey("w"))
+        {
+            currentPos.z += moveSpeed * Time.deltaTime;
+        }
+
+        //keyboard testing
+        if (Input.GetKey("s"))
+        {
+            currentPos.z -= moveSpeed * Time.deltaTime;
         }
 
         //sets the new postion

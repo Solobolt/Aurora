@@ -27,7 +27,7 @@ public abstract class Weapon : MonoBehaviour {
     //Handles Inputs
     void CheckInputs()
     {
-        if (Input.GetAxis(fire1) != 0)
+        if (Input.GetAxis(fire1) != 0||Input.GetMouseButton(0))
         {
             fireWeapon();
         }
