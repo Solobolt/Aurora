@@ -4,6 +4,7 @@ using System.Collections;
 public class ScrollDemoManager : MonoBehaviour 
 {
 	public Vector2 m_ScrollSpeed;
+	public Vector2 m_ScrollSpeed2;
 
 	float m_ExplosiveForce = 1.0f;
 	float m_ForceRadius = 1.0f;
@@ -14,6 +15,7 @@ public class ScrollDemoManager : MonoBehaviour
 	bool m_RandomiseColor = true;
 	
 	VectorGrid m_VectorGrid;
+	VectorGrid m_VectorGrid2;
 	
 	Color m_StartColor = Color.red;
 	Color m_TargetColor = Color.blue;
@@ -23,6 +25,7 @@ public class ScrollDemoManager : MonoBehaviour
 	{
 		Application.targetFrameRate = 60;
 		m_VectorGrid = GameObject.Find("VectorGrid").GetComponent<VectorGrid>();
+		m_VectorGrid2 = GameObject.Find("VectorGrid2").GetComponent<VectorGrid>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +39,11 @@ public class ScrollDemoManager : MonoBehaviour
 			Vector3 worldPosition = screenRay.GetPoint(m_VectorGrid.transform.position.z - Camera.main.transform.position.z);
 			worldPosition.z = m_VectorGrid.transform.position.z;
 			m_VectorGrid.AddGridForce(worldPosition, m_ExplosiveForce * 0.1f, m_ForceRadius, color, true);
+
+			Vector3 worldPosition2 = screenRay.GetPoint(m_VectorGrid2.transform.position.z - Camera.main.transform.position.z);
+			worldPosition2.z = m_VectorGrid2.transform.position.z;
+			m_VectorGrid2.AddGridForce(worldPosition2, m_ExplosiveForce * 0.1f, m_ForceRadius, color, true);
+
 		}
 		
 		if(m_RandomiseColor)
@@ -44,6 +52,7 @@ public class ScrollDemoManager : MonoBehaviour
 		}
 
 		m_VectorGrid.Scroll(m_ScrollSpeed * Time.deltaTime);
+		m_VectorGrid2.Scroll(m_ScrollSpeed2 * Time.deltaTime);
 	}
 	
 	void UpdateRandomColor()
@@ -63,5 +72,6 @@ public class ScrollDemoManager : MonoBehaviour
 		m_Blue = interpolatedColor.b * 255.0f;
 
 		m_VectorGrid.m_ThickLineSpawnColor = interpolatedColor;
+		m_VectorGrid2.m_ThickLineSpawnColor = interpolatedColor;
 	}
 }
