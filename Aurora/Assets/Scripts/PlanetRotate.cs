@@ -8,7 +8,7 @@ public class PlanetRotate : MonoBehaviour {
 	public float rotationSpeedX = 10f;
 
 	public float rotationSpeedZ = -10f;
-	public float rotationSpeed = 10;
+	public float rotationSpeedY = 10;
 
 	// Use this for initialization
 	void Start () {
