@@ -16,6 +16,10 @@ public class GameController : MonoBehaviour {
     //deteramins how far appart players spawn
     private int spawnDistance = 2;
 
+    //Sets a boarder for player movement
+    public float VertWall = 10.0f;
+    public float HoriWall = 17.5f;
+
     //Player Prefab
     public GameObject player;
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();

@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private GameController gameController;
 
+    //Hold the wall values localy
+    private float xBoarder;
+    private float yBoarder;
+
     //Holds movement values
     private Transform myTransform;
     private int moveSpeed = 20;
@@ -26,8 +30,17 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        SetStrings();
         Movement();
+        SetWalls();
 	}
+
+    //Sets the wall limmits of the player
+    private void SetWalls()
+    {
+        xBoarder = gameController.HoriWall;
+        yBoarder = gameController.VertWall;
+    }
 
     //Sets strings depending on the player number
     public void SetStrings()
@@ -79,6 +92,31 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("s"))
         {
             currentPos.z -= moveSpeed * Time.deltaTime;
+        }
+
+        //limmits player movement to the boarder
+        //Top Limmit
+        if (currentPos.z >= yBoarder)
+        {
+            currentPos.z = yBoarder;
+        }
+
+        //Bottom Limmit
+        if(currentPos.z <= -yBoarder)
+        {
+            currentPos.z = -yBoarder;
+        }
+
+        //Left Limmit
+        if (currentPos.x <= -xBoarder)
+        {
+            currentPos.x = -xBoarder;
+        }
+
+        //Left Limmit
+        if (currentPos.x >= xBoarder)
+        {
+            currentPos.x = xBoarder;
         }
 
         //sets the new postion
