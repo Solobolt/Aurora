@@ -11,6 +11,11 @@ public class VectorGridForce : MonoBehaviour
 	public Color m_Color = Color.white;
 	public bool m_HasColor;
 
+	void Start()
+	{
+		m_VectorGrid = GameObject.Find("VectorGrid2").GetComponent<VectorGrid>();
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
