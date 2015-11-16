@@ -4,7 +4,7 @@ using System.Collections;
 public class ChangeMaterial : MonoBehaviour 
 {
 	public Material[] materials;
-	public int delay;
+	public float delay;
 	private int index;
 	public Renderer renderer;
 	
