@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
         setPlayerNumb();
     }
-
+    
     //sets the player numbers correctly
     private void setPlayerNumb()
     {
