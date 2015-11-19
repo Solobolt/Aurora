@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public abstract class Enemy : MonoBehaviour {
-
+public abstract class Enemy : MonoBehaviour 
+{
+	//public Slider healthBarSlider;
 	protected HighScore highScore;
 	public int points;
 
@@ -68,7 +70,13 @@ public abstract class Enemy : MonoBehaviour {
     //Handles what happen when the object is hit
     void OnTriggerEnter(Collider otherObject)
     {
-        if(otherObject.gameObject.tag=="Laser")
+//		if(otherObject.gameObject.tag=="Laser" && healthBarSlider.value>0)
+//		{
+//			healthBarSlider.value -=.01f; 
+//			RemoveHealth(10);
+//			Destroy(otherObject.gameObject);
+//		}
+		if(otherObject.gameObject.tag=="Laser" )
         {
             RemoveHealth(10);
             Destroy(otherObject.gameObject);
