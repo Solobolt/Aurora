@@ -13,7 +13,7 @@ public class VectorGridForce : MonoBehaviour
 
 	void Start()
 	{
-		m_VectorGrid = GameObject.Find("VectorGrid2").GetComponent<VectorGrid>();
+		m_VectorGrid = GameObject.Find("Aurora").GetComponent<VectorGrid>();
 	}
 
 	// Update is called once per frame

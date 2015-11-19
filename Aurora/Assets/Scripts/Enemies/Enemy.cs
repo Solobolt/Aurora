@@ -43,7 +43,7 @@ public abstract class Enemy : MonoBehaviour
         myTransform = this.transform;
         SetUnitValues();
         players = GameObject.FindGameObjectsWithTag("Player");
-		highScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<HighScore>();
+		//highScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<HighScore>();
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 
