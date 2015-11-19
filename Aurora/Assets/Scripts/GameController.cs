@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
     void Start () {
         CheckControllers();
         createPlayers();
+        Time.timeScale = 1;
     }
 	
 	// Update is called once per frame
