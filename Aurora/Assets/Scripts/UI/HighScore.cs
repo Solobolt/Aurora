@@ -82,7 +82,7 @@ public class HighScore : MonoBehaviour
 				float scoresValue = scores[newIndex].score;
 				if(scoreValuesValue == scoresValue){
 					newScores.Add(new ScoreData(scores[newIndex]));
-					scores[newIndex].score = 0;
+					scores[newIndex].score = -1;
 					break;
 				}
 			}
