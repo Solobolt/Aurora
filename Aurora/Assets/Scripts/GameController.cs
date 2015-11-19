@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class GameController : MonoBehaviour {
     private string[] controllers;
 
     //Values depening on the player
-    public int[] score;
+     public int[] score;
 
     //Hold the number of players from the number of controllers
     public int numPlayers = 0;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour {
     public GameObject player;
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();
     private bool isNumbSet = false;
+
 
     // Use this for initialization
     void Start () {

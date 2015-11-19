@@ -3,6 +3,9 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
+	protected HighScore highScore;
+	public int points;
+
     //Audio manager for sounds
     public AudioController audioController;
 
@@ -38,6 +41,7 @@ public abstract class Enemy : MonoBehaviour {
         myTransform = this.transform;
         SetUnitValues();
         players = GameObject.FindGameObjectsWithTag("Player");
+		highScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<HighScore>();
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 
@@ -78,6 +82,7 @@ public abstract class Enemy : MonoBehaviour {
         if (health <= 0)
         {
             Destroy(this.gameObject);
+			highScore.StoreScore(points);
             audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
         }
     }

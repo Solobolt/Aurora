@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ScrollDemoManager : MonoBehaviour 
@@ -24,8 +24,8 @@ public class ScrollDemoManager : MonoBehaviour
 	void Start()
 	{
 		Application.targetFrameRate = 60;
-		m_VectorGrid = GameObject.Find("VectorGrid").GetComponent<VectorGrid>();
-		m_VectorGrid2 = GameObject.Find("VectorGrid2").GetComponent<VectorGrid>();
+		m_VectorGrid = GameObject.Find("Stars").GetComponent<VectorGrid>();
+		m_VectorGrid2 = GameObject.Find("Aurora").GetComponent<VectorGrid>();
 	}
 	
 	// Update is called once per frame
