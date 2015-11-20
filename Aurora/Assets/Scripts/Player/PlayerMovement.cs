@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     private Transform myTransform;
     private int moveSpeed = 20;
     private int health = 150;
+	private int TotalHealth = 150;
+	public Slider healthBarSlider;
 
     //Hold strings for the controller
     private string horizontal;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
         SetStrings();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         gameController.addPlayer(this);
+		healthBarSlider = GameObject.FindGameObjectWithTag ("Player1HealthBar").GetComponentInChildren<Slider>();
     }
 	
 	// Update is called once per frame
@@ -126,14 +130,18 @@ public class PlayerMovement : MonoBehaviour {
     //Handles collitions
     void OnTriggerEnter(Collider otherObject)
     {
-        if(otherObject.tag=="EnemyLaser")
+		if(otherObject.tag=="EnemyLaser")
         {
             health -= 10;
+			healthBarSlider.value = healthBarSlider.value -.066f; 
+
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+				healthBarSlider.value =0f;
             }
             Destroy(otherObject.gameObject);
+
         }
     }
 }
