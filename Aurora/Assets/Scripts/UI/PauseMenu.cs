@@ -46,6 +46,6 @@ public class PauseMenu : MonoBehaviour {
     //Locates the current pause menu
     private void findPauseScreen()
     {
-        visablePauseScreen = GameObject.FindGameObjectWithTag("PauseScreen");
+        visablePauseScreen = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 }

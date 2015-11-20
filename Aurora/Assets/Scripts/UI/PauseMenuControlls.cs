@@ -32,4 +32,11 @@ public class PauseMenuControlls : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    //loads the main menu
+    public void mainMenu()
+    {
+        Application.LoadLevel(0);
+    }
+
 }
