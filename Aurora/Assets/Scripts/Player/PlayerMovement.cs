@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         SetStrings();
         Movement();
         SetWalls();
+
 	}
 
     //Sets the wall limmits of the player
