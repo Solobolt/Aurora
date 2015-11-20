@@ -8,8 +8,9 @@ public abstract class Enemy : MonoBehaviour
 	protected HighScore highScore;
 	public int points;
 
-    //Audio manager for sounds
+    //Audio manager for sounds and game controller
     public AudioController audioController;
+    private GameController gameController;
 
     //Enemy basic value
     public int health;
@@ -45,12 +46,17 @@ public abstract class Enemy : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
 		//highScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<HighScore>();
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update () {
         MoveForward();
-        FireWeapon();
+        
+        if (myTransform.position.z <= gameController.VertWall)
+        {
+            FireWeapon();
+        }
 	}
     
     // Makes the enemy move forward at a constant speed
