@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             for(int i = 0; i < enemy1Spawners.Length; i++)
             {
-                Instantiate(enemy1, enemy1Spawners[i].transform.position,Quaternion.Euler(0,180,0));
+                Instantiate(enemy1, enemy1Spawners[i].transform.position, enemy1Spawners[i].transform.rotation);
             }
         }
 
@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             for (int i = 0; i < enemy2Spawners.Length; i++)
             {
-                Instantiate(enemy2, enemy2Spawners[i].transform.position, Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy2, enemy2Spawners[i].transform.position, enemy2Spawners[i].transform.rotation);
             }
         }
 
@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             for (int i = 0; i < enemy3Spawners.Length; i++)
             {
-                Instantiate(enemy3, enemy3Spawners[i].transform.position, Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy3, enemy3Spawners[i].transform.position, enemy3Spawners[i].transform.rotation);
             }
         }
     }

@@ -13,6 +13,8 @@ public class Enemy1 : Enemy {
     {
         health = unitHealth;
         moveSpeed = unitSpeed;
+
+        track = true;
     }
 
     //Creates and fires enemy bullets in the direction that the enemy is facing

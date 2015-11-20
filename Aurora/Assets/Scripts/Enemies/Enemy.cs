@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
     private GameObject[] players;
     private GameObject closestPlayer;
 
-    private float rotationSpeed = 2.0f;
+    public float rotationSpeed = 0.1f;
     private float adjRotationSpeed;
     private Quaternion targetRotation;
 
@@ -68,7 +68,7 @@ public abstract class Enemy : MonoBehaviour
             LookAtPlayer();
         }
         Vector3 currentPos = myTransform.position;
-        currentPos.z -= moveSpeed * Time.deltaTime;
+        currentPos += transform.forward * moveSpeed * Time.deltaTime;
         myTransform.position = currentPos;
         CheckBoandry(currentPos);
     }
