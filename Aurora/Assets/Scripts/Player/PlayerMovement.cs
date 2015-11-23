@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour {
         SetStrings();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         gameController.addPlayer(this);
-		healthBarSlider = GameObject.FindGameObjectWithTag ("Player1HealthBar").GetComponentInChildren<Slider>();
     }
 	
 	// Update is called once per frame
