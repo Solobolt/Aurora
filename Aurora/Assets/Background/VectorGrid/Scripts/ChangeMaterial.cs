@@ -6,13 +6,13 @@ public class ChangeMaterial : MonoBehaviour
 	public Material[] materials;
 	public float delay;
 	private int index;
-	public Renderer renderer;
+	public Renderer _renderer;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		index = 0;
-		renderer = GetComponent<Renderer> ();
+		_renderer = GetComponent<Renderer> ();
 		//renderer.enabled=true;
 
 	}
@@ -33,10 +33,10 @@ public class ChangeMaterial : MonoBehaviour
 		if (index == 0) 
 		{
 			yield return new WaitForSeconds (delay);
-			this.renderer.material = materials [index];
+			this._renderer.material = materials [index];
 			index = 1;
 			yield return new WaitForSeconds (delay);
-			this.renderer.material = materials [index];
+			this._renderer.material = materials [index];
 			index = 2;
 			yield return new WaitForSeconds (delay);
 			index=0;
