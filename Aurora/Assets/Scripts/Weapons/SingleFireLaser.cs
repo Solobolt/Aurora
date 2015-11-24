@@ -17,7 +17,8 @@ public class SingleFireLaser : Weapon {
         if(fireTime >= fireRate)
         {
             audioController.playSound(audioController.SFX,audioController.playerShot,1.0f);
-            Instantiate(projectile,myTransform.position,myTransform.rotation);
+            GameObject playerLaser = Instantiate(projectile,myTransform.position,myTransform.rotation) as GameObject;
+            playerLaser.GetComponent<Laser>().SetPlayerNum(playerNumb);
             fireTime = 0;
         }
     }

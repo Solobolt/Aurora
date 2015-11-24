@@ -5,7 +5,7 @@ public abstract class Weapon : MonoBehaviour {
 
     private string fire1;
 
-    private int playerNumb;
+    public int playerNumb;
     private bool numbChecked = false;
 
     public AudioController audioController;

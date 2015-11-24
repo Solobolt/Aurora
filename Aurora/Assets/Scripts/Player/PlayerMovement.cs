@@ -130,10 +130,9 @@ public class PlayerMovement : MonoBehaviour {
     //Handles collitions
     void OnTriggerEnter(Collider otherObject)
     {
-		if(otherObject.tag=="EnemyLaser")
+        if (otherObject.tag=="EnemyLaser")
         {
             health -= 10;
-            healthBarSlider.value = ((float)health/(float)TotalHealth);
 
             if (health <= 0)
             {
@@ -143,5 +142,6 @@ public class PlayerMovement : MonoBehaviour {
             Destroy(otherObject.gameObject);
 
         }
+        healthBarSlider.value = ((float)health / (float)TotalHealth);
     }
 }

@@ -22,7 +22,7 @@ public class Miniboss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        healthWeaponCheck();
+        
 	}
     
     //activates wepons
@@ -63,6 +63,8 @@ public class Miniboss : MonoBehaviour {
         health -= damage;
         //healthBarSlider.value = healthBarSlider.value - 0.001f;
         healthBarSlider.value = ((float)health/(float)TotalHealth);
+
+        healthWeaponCheck();
 
         if (health <= 0)
         {

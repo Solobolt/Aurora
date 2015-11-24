@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Laser : MonoBehaviour {
+    public int playerNum = 1;
 
     private Transform myTransform;
 
@@ -23,4 +24,10 @@ public class Laser : MonoBehaviour {
 	void Update () {
         
 	}
+    
+    //changes the playernum
+    public void SetPlayerNum(int number)
+    {
+        playerNum = number;
+    }
 }
