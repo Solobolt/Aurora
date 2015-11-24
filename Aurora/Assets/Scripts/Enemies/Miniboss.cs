@@ -46,7 +46,7 @@ public class Miniboss : MonoBehaviour {
     void healthWeaponCheck()
     {
         //swaps the enemy weapon 
-        if (health <= TotalHealth * 0.6f && health > TotalHealth * 0.3)
+        if ((health <= TotalHealth * 0.6f) && (health > TotalHealth * 0.3f))
         {
             SetWeapons(false,true,false);
         }
