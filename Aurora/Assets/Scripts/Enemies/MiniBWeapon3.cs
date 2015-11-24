@@ -7,7 +7,6 @@ public class MiniBWeapon3 : MonoBehaviour {
 
     private float _Angle = 85.0f;
     private float _Period = 0.5f;
-    private float _OffSet = 180.0f;
 
     private float _Time;
 
@@ -34,7 +33,7 @@ public class MiniBWeapon3 : MonoBehaviour {
     {
         _Time = _Time + Time.deltaTime;
         float phase = Mathf.Sin(_Time / _Period);
-        transform.localRotation = Quaternion.Euler(new Vector3(0, (phase * _Angle), 0));
+        myTransform.localRotation = Quaternion.Euler(new Vector3(0, (phase * _Angle), 0));
     }
 
     //Fires the weapon

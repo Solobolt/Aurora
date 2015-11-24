@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour {
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();
     private bool isNumbSet = false;
 
-
     // Use this for initialization
     void Start () {
         CheckControllers();

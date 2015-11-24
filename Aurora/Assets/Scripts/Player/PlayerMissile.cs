@@ -12,20 +12,15 @@ public class PlayerMissile : MonoBehaviour {
 
     private GameObject closestEnemyUnit;
 
-    private GameController gameManager;
-
     private float rotationSpeed = 10.0f;
 
     private float lifeTime;
     private float lifeTimeDuration = 1f;
 
-    private float damage = 20f;
-
     // Use this for initialization
     void Start()
     {
         myTransform = this.transform;
-        gameManager = FindObjectOfType<GameController>();
         lifeTime = Time.time + lifeTimeDuration;
         
     }

@@ -61,7 +61,8 @@ public class Miniboss : MonoBehaviour {
     void RemoveHealth()
     {
         health -= damage;
-        healthBarSlider.value = healthBarSlider.value - 0.001f;
+        //healthBarSlider.value = healthBarSlider.value - 0.001f;
+        healthBarSlider.value = ((float)health/(float)TotalHealth);
 
         if (health <= 0)
         {

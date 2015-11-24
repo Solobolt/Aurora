@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour {
 		if(otherObject.tag=="EnemyLaser")
         {
             health -= 10;
-			healthBarSlider.value = healthBarSlider.value -.066f; 
+            healthBarSlider.value = ((float)health/(float)TotalHealth);
 
             if (health <= 0)
             {

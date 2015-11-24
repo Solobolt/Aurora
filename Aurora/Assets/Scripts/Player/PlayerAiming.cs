@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PlayerAiming : MonoBehaviour {
 
-    private GameController gameController;
-
     public int playerNumb;
     private bool numbChecked = false;
 
@@ -37,7 +35,6 @@ public class PlayerAiming : MonoBehaviour {
     void Start () {
         //sets the players transform
         myTransform = this.transform;
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
