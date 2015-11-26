@@ -8,7 +8,7 @@ public class BodySwap : MonoBehaviour {
     public GameObject model2;
 
     private PlayerMovement parent1;
-    private int playerNumber;
+    private int playerNumber = 1;
 
 	// Use this for initialization
 	void Start () {
