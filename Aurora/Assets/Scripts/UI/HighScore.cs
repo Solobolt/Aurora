@@ -48,6 +48,7 @@ public class HighScore : MonoBehaviour
 		//SetScores ();*/
 		RetrieveScores ();
 		OrganiseScores ();
+        SetScores();
 	}
 	
 	void OnDestroy () {

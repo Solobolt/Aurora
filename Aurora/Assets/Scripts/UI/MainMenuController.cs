@@ -5,9 +5,9 @@ public class MainMenuController : MonoBehaviour {
 
     //Loads a specified level
     //FOR DEMO LOAD LEVEL 1
-    public void loadLevel(int level)
+    public void loadLevel()
     {
-        Application.LoadLevel(level);
+        Application.LoadLevel("ShipSelection");
     }
 
     //Exits the game (Doesnt work in editor but does work in executable)

@@ -29,6 +29,11 @@ public class PlayerMovement : MonoBehaviour {
         SetStrings();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         gameController.addPlayer(this);
+        int test = ShipSelection.P1Ship;
+        print(test);
+
+        int test2 = ShipSelection.P2Ship;
+        print(test2);
     }
 	
 	// Update is called once per frame
@@ -137,6 +142,7 @@ public class PlayerMovement : MonoBehaviour {
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                gameController.numPlayers--;
 				healthBarSlider.value =0f;
             }
             Destroy(otherObject.gameObject);

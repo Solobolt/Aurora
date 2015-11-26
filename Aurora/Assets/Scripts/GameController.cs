@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     private string[] controllers;
 
     //Values depening on the player
-     public int[] score;
+     public int totalScore;
 
     //Hold the number of players from the number of controllers
     public int numPlayers = 0;
@@ -31,11 +31,20 @@ public class GameController : MonoBehaviour {
         CheckControllers();
         createPlayers();
         Time.timeScale = 1;
+        totalScore = 0;
+        PlayerPrefs.SetInt("TotalScore",totalScore);
+        PlayerPrefs.Save();
     }
 	
 	// Update is called once per frame
 	void Update () {
         setPlayerNumb();
+        if(numPlayers == 0)
+        {
+            PlayerPrefs.SetInt("TotalScore", totalScore);
+            PlayerPrefs.Save();
+            print("Gameover");
+        }
     }
     
     //sets the player numbers correctly

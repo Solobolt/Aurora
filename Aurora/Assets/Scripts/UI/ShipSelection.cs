@@ -27,4 +27,14 @@ public class ShipSelection : MonoBehaviour {
     {
         P2Ship = ship;
     }
+
+    public void PlayLevel()
+    {
+        Application.LoadLevel("InGame");
+    }
+
+    public void MoveToCustom()
+    {
+        Application.LoadLevel("CustomizationMenu");
+    }
 }
