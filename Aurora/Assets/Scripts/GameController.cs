@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     private string[] controllers;
 
     //Values depening on the player
-     public int[] score;
+     public int totalScore;
 
     //Hold the number of players from the number of controllers
     public int numPlayers = 0;
@@ -26,18 +26,21 @@ public class GameController : MonoBehaviour {
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();
     private bool isNumbSet = false;
 
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         CheckControllers();
         createPlayers();
         Time.timeScale = 1;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         setPlayerNumb();
     }
-    
+
     //sets the player numbers correctly
     private void setPlayerNumb()
     {
@@ -83,14 +86,20 @@ public class GameController : MonoBehaviour {
             case 1:
 
                 Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-
                 break;
 
             case 2:
-
-                for (int i = 0; i < numPlayers; i++)
+                for (int i = 1; i < (numPlayers + 1); i++)
                 {
-                    Instantiate(player, new Vector3(spawnDistance * Mathf.Pow((-1),i), 0, 0), new Quaternion(0, 0, 0, 0));
+                    if (i == 2)
+                    {
+                        GameObject playerObject = Instantiate(player, new Vector3(spawnDistance * Mathf.Pow((-1), i), 0, 0), new Quaternion(0, 0, 0, 0)) as GameObject;
+                        playerObject.GetComponent<PlayerMovement>().playerNumb = 2;
+                    }
+                    else
+                    {
+                        Instantiate(player, new Vector3(spawnDistance * Mathf.Pow((-1), i), 0, 0), new Quaternion(0, 0, 0, 0));
+                    }
                 }
 
                 break;

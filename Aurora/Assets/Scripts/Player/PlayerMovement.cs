@@ -137,6 +137,7 @@ public class PlayerMovement : MonoBehaviour {
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                gameController.numPlayers--;
 				healthBarSlider.value =0f;
             }
             Destroy(otherObject.gameObject);
