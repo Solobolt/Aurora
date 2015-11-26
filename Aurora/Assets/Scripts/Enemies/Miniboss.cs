@@ -6,7 +6,7 @@ public class Miniboss : MonoBehaviour {
 
     //sets the miniboss's health
     private int health = 10000;
-    private int TotalHealth = 1000;
+    private int TotalHealth = 10000;
     private int damage = 10;
     public Slider healthBarSlider;
 
@@ -14,7 +14,7 @@ public class Miniboss : MonoBehaviour {
     public GameObject weapon1;
     public GameObject weapon2;
     public GameObject weapon3;
-
+    
     // Use this for initialization
     void Start () {
         SetWeapons(true,false,false);
