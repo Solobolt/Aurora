@@ -9,6 +9,10 @@ public class MainMenuController : MonoBehaviour {
     {
         Application.LoadLevel("ShipSelection");
     }
+    public void loadOptions()
+    {
+        Application.LoadLevel("Options");
+    }
 
     //Exits the game (Doesnt work in editor but does work in executable)
     public void quitGame()
