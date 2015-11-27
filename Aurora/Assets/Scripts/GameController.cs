@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     private string[] controllers;
 
     //Values depening on the player
-     public int totalScore;
+     public static int totalScore;
 
     //Hold the number of players from the number of controllers
     public int numPlayers = 0;
@@ -39,6 +39,11 @@ public class GameController : MonoBehaviour {
     void Update()
     {
         setPlayerNumb();
+        if(numPlayers == 0)
+        {
+            print(totalScore);
+            Application.LoadLevel("HighScore");
+        }
     }
 
     //sets the player numbers correctly

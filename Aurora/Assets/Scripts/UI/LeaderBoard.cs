@@ -16,7 +16,13 @@ public class LeaderBoard : MonoBehaviour {
     //replays the level
     public void ReplayLevel()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel("InGame");
+    }
+
+   //loads the main menu
+    public void mainMenu()
+    {
+        Application.LoadLevel("MainMenu");
     }
 
 

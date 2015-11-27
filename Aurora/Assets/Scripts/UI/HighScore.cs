@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
@@ -44,12 +43,13 @@ public class HighScore : MonoBehaviour
 			currentData.score = Random.Range(0,100);
 			scores.Add(currentData);
 		}
-
-		//SetScores ();*/
+        */
+		
 		RetrieveScores ();
 		OrganiseScores ();
         SetScores();
-	}
+        StoreScore();
+    }
 	
 	void OnDestroy () {
 		SetScores ();
@@ -83,7 +83,7 @@ public class HighScore : MonoBehaviour
 				float scoresValue = scores[newIndex].score;
 				if(scoreValuesValue == scoresValue){
 					newScores.Add(new ScoreData(scores[newIndex]));
-					scores[newIndex].score = -1;
+					scores[newIndex].score = 0;
 					break;
 				}
 			}
@@ -113,9 +113,10 @@ public class HighScore : MonoBehaviour
 		StoreData ();
 	}
 	
-	public void StoreScore (float score){
-		currentData.score += score;
-		ShowCurScore ();
+	public void StoreScore (){
+        currentData.score += GameController.totalScore;
+        GameController.totalScore = 0;
+        ShowCurScore ();
 		Debug.Log ("Stored Score");
 	}
 	
