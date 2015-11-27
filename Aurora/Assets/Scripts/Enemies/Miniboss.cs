@@ -39,6 +39,7 @@ public class Miniboss : MonoBehaviour {
         if(otherObject.gameObject.tag == "Laser")
         {
             RemoveHealth();
+            Destroy(otherObject.gameObject);
         }
     }
 
@@ -68,6 +69,7 @@ public class Miniboss : MonoBehaviour {
 
         if (health <= 0)
         {
+            GameController.totalScore += 5000;
             healthBarSlider.value = 0f;
             Destroy(this.gameObject);
         }

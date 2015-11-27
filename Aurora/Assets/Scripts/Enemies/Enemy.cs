@@ -96,7 +96,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
-            GameController.totalScore += 10;
+            GameController.totalScore += 100;
 			//highScore.StoreScore(points);
             audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
         }
